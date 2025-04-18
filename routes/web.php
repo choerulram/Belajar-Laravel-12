@@ -16,8 +16,10 @@ Route::get('/about', function() {
 
 // menggunakan route view
 Route::view('/contact', 'pages.contact');
-Route::get('/about/{id}/detail', function($id) {
-    return view('pages.detail', [
-        'nomor' => $id
-    ]);
-});
+// Route::get('/about/{id}/detail', function($id) {
+//     return view('pages.detail', [
+//         'nomor' => $id
+//     ]);
+// });
+
+Route::view('/product', 'pages.product');
