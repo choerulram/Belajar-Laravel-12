@@ -3,7 +3,18 @@
 @section('konten')
     <h1>Daftar Produk Kami</h1>
     <hr>
-    <button type="button" class="btn btn-primary mb-3">Tambah Data</button>
+
+    {{-- ambil data dari ProductController --}}
+    <div class="alert alert-dark">
+        <h3>Produk Terbaru</h3>
+        <b>Nama Toko : {{ $nama_toko }}</b>
+        <br>
+        <b>Alamat Toko : {{ $alamat_toko }}</b>
+        <br>
+        <b>Type Toko : {{ $type }}</b>
+    </div>
+
+    <a href="/product/tambah"><button type="button" class="btn btn-primary mb-3">Tambah Data</button></a>
     <div class="card">
         <div class="card-header">
             Daftar Produk

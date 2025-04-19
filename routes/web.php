@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('pages.beranda');
@@ -22,4 +23,5 @@ Route::view('/contact', 'pages.contact');
 //     ]);
 // });
 
-Route::view('/product', 'pages.product');
+Route::get('/product', [ProductController::class, 'getProduct']);
+Route::get('/product/tambah', [ProductController::class, 'tambahProduct']);
