@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // sintaks di bawah untuk membuat table product
-        Schema::create('tb_product', function (Blueprint $table) {
-            $table->id('id_product'); // defaultnya id
-            $table->string('product_name', 150); // default lenght dari laravel 255
-            $table->integer('price');
+        Schema::create('tb_category', function (Blueprint $table) {
+            $table->id('id_category');
+            $table->string('category_name', 100);
             $table->text('description');
-            $table->string('id_category');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_product');
+        Schema::dropIfExists('tb_category');
     }
 };
