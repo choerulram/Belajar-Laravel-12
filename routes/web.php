@@ -23,5 +23,5 @@ Route::view('/contact', 'pages.contact');
 //     ]);
 // });
 
-Route::get('/product', [ProductController::class, 'getProduct']);
+Route::get('/product', [ProductController::class, 'index']); // read data product
 Route::get('/product/tambah', [ProductController::class, 'tambahProduct']);
