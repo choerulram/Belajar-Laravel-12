@@ -7,11 +7,11 @@
     {{-- ambil data dari ProductController --}}
     <div class="alert alert-dark">
         <h3>Produk Terbaru</h3>
-        <b>Nama Toko : {{ $nama_toko }}</b>
+        <b>Nama Toko : {{ $data_toko['nama_toko'] }}</b>
         <br>
-        <b>Alamat Toko : {{ $alamat_toko }}</b>
+        <b>Alamat Toko : {{ $data_toko['alamat_toko'] }}</b>
         <br>
-        <b>Type Toko : {{ $type }}</b>
+        <b>Type Toko : {{ $data_toko['type'] }}</b>
     </div>
 
     <a href="/product/tambah"><button type="button" class="btn btn-primary mb-3">Tambah Data</button></a>
@@ -25,52 +25,24 @@
                     <tr>
                       <th scope="col">No</th>
                       <th scope="col">Nama Produk</th>
-                      <th scope="col">Stok</th>
                       <th scope="col">Harga</th>
+                      <th scope="col">Deskripsi Produk</th>
                       <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Laptop Axio</td>
-                      <td>25</td>
-                      <td>Rp. 5.000.000</td>
-                      <td>
-                        <button type="button" class="btn btn-danger mb-3">Hapus</button>
-                        <button type="button" class="btn btn-warning mb-3">Edit</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Laptop Acer</td>
-                      <td>5</td>
-                      <td>Rp. 6.000.000</td>
-                      <td>
-                        <button type="button" class="btn btn-danger mb-3">Hapus</button>
-                        <button type="button" class="btn btn-warning mb-3">Edit</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Laptop Asus</td>
-                      <td>15</td>
-                      <td>Rp. 5.500.000</td>
-                      <td>
-                        <button type="button" class="btn btn-danger mb-3">Hapus</button>
-                        <button type="button" class="btn btn-warning mb-3">Edit</button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Laptop HP</td>
-                      <td>20</td>
-                      <td>Rp. 7.000.000</td>
-                      <td>
-                        <button type="button" class="btn btn-danger mb-3">Hapus</button>
-                        <button type="button" class="btn btn-warning mb-3">Edit</button>
-                      </td>
-                    </tr>
+                    @foreach ($data_product as $data)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $data->product_name }}</td>
+                            <td>{{ $data->price }}</td>
+                            <td>{{ $data->description }}</td>
+                            <td>
+                            <button type="button" class="btn btn-danger mb-3">Hapus</button>
+                            <button type="button" class="btn btn-warning mb-3">Edit</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
