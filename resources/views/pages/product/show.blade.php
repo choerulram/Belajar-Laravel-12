@@ -14,7 +14,11 @@
         <b>Type Toko : {{ $data_toko['type'] }}</b>
     </div>
 
-    <a href="/product/tambah"><button type="button" class="btn btn-primary mb-3">Tambah Data</button></a>
+    @if (session('message'))
+    <div class="alert alert-success">{{ session('message') }}</div>
+    @endif
+    <a href="/product/create"><button type="button" class="btn btn-primary mb-3">Tambah Data</button></a>
+
     <div class="card">
         <div class="card-header">
             Daftar Produk

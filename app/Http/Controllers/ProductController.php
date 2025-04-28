@@ -28,7 +28,32 @@ class ProductController extends Controller
         ]);
     }
 
-    public function tambahProduct() {
-        return view('pages.addProduct');
+    public function create() {
+        return view('pages.product.add');
+    }
+
+    public function store(Request $request) {
+
+        // validasi
+        $request->validate([
+            'product_name'=>'required',
+            'price'=>'required',
+            'description'=>'required',
+        ]);
+
+        // untuk menambahkan data ke tb_product
+        // DB::table('tb_product')->create([]);
+
+        // query tambah data
+        Product::create([
+            'product_name'=>$request->product_name,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'id_category'=>'1',
+        ]);
+
+        // mengarahkan ke halaman '/product'
+        return redirect('/product')->with('message', 'Berhasil menambahkan data!');
     }
 }
+
