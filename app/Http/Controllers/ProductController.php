@@ -61,5 +61,19 @@ class ProductController extends Controller
         // mengarahkan ke halaman '/product'
         return redirect('/product')->with('message', 'Berhasil menambahkan data!');
     }
+
+    public function show($id) {
+        // query atau perintah
+        // elequent ORM
+        $data = Product::findOrFail($id);
+        // dd($data);
+
+        // query builder
+        DB::table('tb_product')->where('id_product', $id)->firstOrFail();
+
+        return view('pages.product.detail', [
+            'product'=>$data
+        ]);
+    }
 }
 

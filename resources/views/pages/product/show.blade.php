@@ -44,6 +44,7 @@
                             <td>
                             <button type="button" class="btn btn-danger mb-3">Hapus</button>
                             <button type="button" class="btn btn-warning mb-3">Edit</button>
+                            <a href="/product/{{ $data->id_product }}"><button type="button" class="btn btn-info mb-3">Detail</button></a>
                             </td>
                         </tr>
                     @endforeach

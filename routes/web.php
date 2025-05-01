@@ -26,3 +26,4 @@ Route::view('/contact', 'pages.contact');
 Route::get('/product', [ProductController::class, 'index']); // read data product
 Route::get('/product/create', [ProductController::class, 'create']); // menampilkan halaman form add
 Route::post('/product', [ProductController::class, 'store']); // untk mengelola data yg dikirim dari form add
+Route::get('/product/{id}', [ProductController::class, 'show']);
