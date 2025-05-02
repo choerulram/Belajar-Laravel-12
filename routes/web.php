@@ -23,7 +23,16 @@ Route::view('/contact', 'pages.contact');
 //     ]);
 // });
 
+// get data product
 Route::get('/product', [ProductController::class, 'index']); // read data product
+
+// add and save data product
 Route::get('/product/create', [ProductController::class, 'create']); // menampilkan halaman form add
 Route::post('/product', [ProductController::class, 'store']); // untk mengelola data yg dikirim dari form add
-Route::get('/product/{id}', [ProductController::class, 'show']);
+
+// detail data product
+Route::get('/product/{id}', [ProductController::class, 'show']); // untk menampilkan detail product
+
+// edit and update data product
+Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
+Route::put('/product/{id}', [ProductController::class, 'update']);

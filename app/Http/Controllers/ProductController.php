@@ -75,5 +75,42 @@ class ProductController extends Controller
             'product'=>$data
         ]);
     }
+
+    public function edit($id) {
+        // ambil data by id
+        $data = Product::findOrFail($id);
+        // dd($data);
+
+        // DB::table('tb_product')->where('id_product', $id)->firstOrFail();
+
+        return view('pages.product.edit', [
+            'data'=>$data
+        ]);
+    }
+
+    public function update($id, Request $request) {
+        // validasi
+        $request->validate([
+            'product_name'=>'required|min:8|max:12',
+            'price'=>'required',
+            'description'=>'required',
+        ], [
+            'product_name.min'=>'Nama produk minimal 8 karakter',
+            'product_name.max'=>'Nama produk maksimal 12 karakter',
+            'product_name.required'=>'Inputan nama produk harus di isi',
+            'price.required'=>'Inputan harga produk harus di isi',
+            'description.required'=>'Inputan deskripsi produk harus di isi',
+        ]);
+
+        // query untk simpan data update
+        Product::where('id_product', $id)->update([
+            'product_name'=>$request->product_name,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'id_category'=>'1',
+        ]);
+
+        return redirect('/product')->with('message', 'Data berhasil di edit!');
+    }
 }
 
