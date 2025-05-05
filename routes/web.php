@@ -36,3 +36,6 @@ Route::get('/product/{id}', [ProductController::class, 'show']); // untk menampi
 // edit and update data product
 Route::get('/product/{id}/edit', [ProductController::class, 'edit']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
+
+// delete data product
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);

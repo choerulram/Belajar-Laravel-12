@@ -117,5 +117,11 @@ class ProductController extends Controller
 
         return redirect('/product')->with('message', 'Data berhasil di edit!');
     }
+
+    public function destroy($id) {
+        // query untuk menghapus data di database
+        Product::findOrFail($id)->delete();
+        return redirect('/product')->with('message', 'Data berhasil di hapus!');
+    }
 }
 
